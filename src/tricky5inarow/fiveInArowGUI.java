@@ -19,7 +19,7 @@ public class fiveInArowGUI extends JFrame {
     private JPanel panel;
     private Model model;
     private ArrayList<JButton> but = new ArrayList();
-    
+
     public fiveInArowGUI(){
         setTitle("Tricky Five in a Row");
         setSize(450,450);
@@ -45,7 +45,7 @@ public class fiveInArowGUI extends JFrame {
         getContentPane().add(mid);
         getContentPane().add(large);
     }
-    
+
     private ActionListener getActionListener(final int size){
         return new ActionListener(){
             @Override
@@ -53,7 +53,7 @@ public class fiveInArowGUI extends JFrame {
                 getContentPane().removeAll();
                 getContentPane().revalidate();
                 getContentPane().repaint();
-                
+
                 //getContentPane().setLayout(new GridLayout(size,size));
                 JPanel top = new JPanel();
                 //top.setLayout(new BoxLayout(getContentPane(),BoxLayout.X_AXIS));
@@ -61,7 +61,7 @@ public class fiveInArowGUI extends JFrame {
                 b2.setText("New game");
                 b2.addActionListener(k -> start());
                 top.add(b2);
-                
+
                 JPanel main = new JPanel();
                 main.setLayout(new GridLayout(size,size));
                 model = new Model(size);
@@ -72,9 +72,9 @@ public class fiveInArowGUI extends JFrame {
                 }
                 getContentPane().add(top,BorderLayout.NORTH);
                 getContentPane().add(main,BorderLayout.CENTER);
-                
+
             }
-            
+
         };
 
         }
@@ -83,13 +83,13 @@ public class fiveInArowGUI extends JFrame {
             but.add(b);
             b.addActionListener(e-> {
                 Player newValue = model.step(i,j);
-                b.setText(newValue.name());    
+                b.setText(newValue.name());
                 //insert code here
                 Player winner = model.getWinner();
                 if (winner!= Player.NOBODY){
                     showGameOverMessage(winner);
                 }
-                model.PUnstep(newValue);
+                /*model.PUnstep(newValue);
                 if (winner == Player.NOBODY){
                     if (model.c1 != null){
                       but.get((model.c1.getRow())*model.size + (model.c1.getColumn())).setText("");
@@ -99,7 +99,7 @@ public class fiveInArowGUI extends JFrame {
                       but.get((model.c2.getRow())*model.size + (model.c2.getColumn())).setText("");
                       model.c2 = null;
                     }
-                }
+                }*/
             });
             panel.add(b);
     }

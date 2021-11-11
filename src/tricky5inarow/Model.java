@@ -20,13 +20,13 @@ public class Model {
     private ArrayList<ArrayList<Integer>> listX;
     private ArrayList<ArrayList<Integer>> listO;
     public Collect c1,c2;
-    
+
     public Model(int size){
         this.size=size;
         p=Player.X;
         listX = new ArrayList();
         listO = new ArrayList();
-        
+
         grid = new Player[size][size];
         for (int i = 0; i < size; i++){
             for (int j = 0; j < size; j++){
@@ -34,13 +34,13 @@ public class Model {
             }
         }
     }
-    
+
     public Player step(int row, int column){
         if (grid[row][column] != Player.NOBODY){
             return grid[row][column];
         }
         grid[row][column] = p;
-        
+
         if (p == Player.X){
            ArrayList<Integer> temp = new ArrayList();
            temp.add(row);
@@ -58,7 +58,7 @@ public class Model {
         }
         return grid[row][column];
     }
-    
+    /*
     public Collect unstep(Player p){
        boolean t= false;
        Random random = new Random();
@@ -81,8 +81,8 @@ public class Model {
        return new Collect(true,x,y);
        }
        return null;
-    }
-    
+    }*/
+
     public Player getWinner(){
     for (int i = 0; i < size; i++){
         for (int j=0; j < size - 4; j++){
@@ -97,10 +97,10 @@ public class Model {
                    return ptemp;
                }
                }
-           } 
+           }
         }
     }
-    
+
         for (int i = 0; i < size; i++){
         for (int j=0; j < size; j++){
            if (grid[j][i] != Player.NOBODY){
@@ -114,7 +114,7 @@ public class Model {
                if (count >= 5){
                    return ptemp;
                }
-           } 
+           }
         }
     }
      for (int i = 0; i < size; i++){
@@ -152,12 +152,12 @@ public class Model {
                    return ptemp;
                }
             }
-            
+
         }
      }
     return Player.NOBODY;
     }
-    
+/*
     public void PUnstep (Player p){
          for (int i = 0; i < size; i++){
         for (int j=0; j < size ; j++){
@@ -191,7 +191,7 @@ public class Model {
                if (count == 4){
                     c1=this.unstep(ptemp);
                     c2= this.unstep(ptemp);
-               }   
+               }
         }
     }
     }
@@ -214,7 +214,7 @@ public class Model {
                     c1=this.unstep(ptemp);
                     c2= this.unstep(ptemp);
                }
-            }    
+            }
         }
      }
         for (int i = 0; i < size; i++){
@@ -238,6 +238,6 @@ public class Model {
                }
             }
         }
-     }     
-}
+     }
+}*/
 }
